@@ -1,0 +1,9 @@
+vincentbernat/zshrc/*~
+vincentbernat/zshrc/*.zwc
+vincentbernat/zshrc/local
+vincentbernat/zshrc/run
+vincentbernat/zshrc/artifacts
+vincentbernat/zshrc/oldzsh.tar.gz
+tmux-powerline/segments/np_mpd
+tmux-powerline/segments/xkb_layout
+tmux-powerline/*.swp
