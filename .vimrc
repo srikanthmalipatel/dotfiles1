@@ -107,3 +107,34 @@ noremap <leader>yy "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+" Easy-align-plugin mappings 
+" ================================
+" Start interactive align in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" ================================
+"
+"
+"
+" Codeforces.vim variables
+" ================================
+let g:CodeForcesCount = 40              " Set count of users on one page
+let g:CodeForcesContestId = 518         " Set current round to contest id
+let g:CodeForcesUpdateInterval = 1
+let g:CodeForcesCountOfSubmits = 10
+let g:CodeForcesShowUnofficial = 1
+let g:CodeForcesFriends = 1
+let g:CodeForcesCommandStandings = 'badd'
+let g:CodeForcesCommandLoadTask = 'badd'
+let g:CodeForcesCommandSubmission= 'badd'
+let g:CodeForcesUsername = 'srikanthreddy'
+let g:CodeForcesPassword = '!Dana123'
+let g:CodeForcesContestFormat = 'smthngelse'
+let g:CodeForcesInput = 'sampleInput'
+let g:CodeForcesOutput = 'sampleOutput'
+let g:CodeForcesUserOutput = 'myCorrectOutput'
+let g:CodeForcesTemplate = '/Users/SrikanthMalipatel/workspace/dotfiles/template.cpp'
+let g:CodeForcesLang = 'en'
