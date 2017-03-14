@@ -122,7 +122,7 @@ nmap ga <Plug>(EasyAlign)
 " Codeforces.vim variables
 " ================================
 let g:CodeForcesCount = 40              " Set count of users on one page
-let g:CodeForcesContestId = 518         " Set current round to contest id
+let g:CodeForcesContestId = 677         " Set current round to contest id
 let g:CodeForcesUpdateInterval = 1
 let g:CodeForcesCountOfSubmits = 10
 let g:CodeForcesShowUnofficial = 1

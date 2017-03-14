@@ -1,95 +1,43 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/SrikanthMalipatel/.oh-my-zsh
+# -*- sh -*-
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="srikanth"
+# Disabling MULTIOS option - The MULTIOS option means that echo something >&1 | other_command will output to FD 1 and pipe the output to other_command, rather than only piping it. To turn this off, run unsetopt MULTIOS.
+unsetopt MULTIOS
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# Use /bin/sh when no terminal is present
+[[ ${TERM:-dumb} != "dumb" ]] || exec /bin/sh
+[ -t 1 ] || exec /bin/sh
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Execute tmux if available and if we have some configuration for it
+#(( $+commands[tmux] )) && \
+#    [[ -f ~/.tmux.conf && \
+#             $PPID != 1 && \
+#             $$ != 1 && \
+#             $TERM != linux && \
+#             $TERM != screen* && \
+#             -z $TMUX ]] && \
+#    exec tmux
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+export ZSH=/Users/SrikanthMalipatel/.zsh
+#ZSH=${ZSH:-${ZDOTDIR:-$HOME}/.zsh}
+fpath=($ZSH/functions $ZSH/completions $fpath)
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+[[ $ZSH_NAME == "zsh-static" ]] && [[ -d /usr/share/zsh-static ]] && {
+    # Rewrite /usr/share/zsh to /usr/share/zsh-static
+    fpath=(${fpath/\/usr\/share\/zsh\//\/usr\/share\/zsh-static\/})
+}
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# Autoload add-zsh-hook if available
+autoload -U is-at-least
+{ autoload -U +X add-zsh-hook || unset -f add-zsh-hook } 2> /dev/null
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+__() {
+    for config_file ($ZSH/rc/*.zsh) source $config_file
+    [ ! -e $ZSH/env ] || . $ZSH/env
+} && __
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+_vbe_setprompt
+unset __
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-# User configuration
-
-export PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
-
-PROMPT_DIRTRIM=3
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-export EDITOR="vim"
-bindkey -v 
-
-# vi style incremental search
-bindkey '^R' history-incremental-search-backward
-bindkey '^S' history-incremental-search-forward
-bindkey '^P' history-search-backward
-bindkey '^N' history-search-forward 
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
-
-antigen bundle rimraf/k
-antigen apply
 
 alias ..='cd ..'
 alias apt-get='sudo apt-get'
@@ -126,31 +74,11 @@ alias edit='vim'
 alias ports='netstat -tulanp'
 #
 ## virtualbox start and save
-alias box1start='VBoxManage startvm Box-1 --type headless'
-alias box1save='VBoxManage controlvm Box-1 savestate'
-alias box1stop='VBoxManage controlvm Box-1 poweroff'
+alias devboxstart='VBoxManage startvm Development-Box --type headless'
+alias devboxsave='VBoxManage controlvm Development-Box savestate'
+alias devboxstop='VBoxManage controlvm Development-Box poweroff'
 #
-alias box2start='VBoxManage startvm Box-2 --type headless'
-alias box2save='VBoxManage controlvm Box-2 savestate'
-alias box2stop='VBoxManage controlvm Box-2 poweroff'
-#
-alias eboxstart='VBoxManage startvm Eudyptula --type headless'
-alias eboxsave='VBoxManage controlvm Eudyptula savestate'
-alias eboxstop='VBoxManage controlvm Eudyptula poweroff'
-#
-alias ministart='VBoxManage startvm Mininet-VM --type headless'
-alias minissave='VBoxManage controlvm Mininet-VM savestate'
-alias ministop='VBoxManage controlvm Mininet-VM poweroff'
-#
-## ON/OFF hidden files
-alias show='defaults write com.apple.finder AppleShowAllFiles YES'
-alias hide='defaults write com.apple.finder AppleShowAllFiles OFF'
-#
-##ssh commands
-alias sshbox1='ssh -p 2000 box1@localhost'
-alias sshbox2='ssh -p 2100 box1@localhost'
-alias sshebox='ssh -p 2200 eudyptula-box@localhost'
-alias sshmini='ssh  mininet@192.168.56.102'
+alias sshdevbox='ssh -p 2000 box@localhost'
 alias kodingvm='sudo ssh -o StrictHostKeyChecking=no smalipat@uskkce0ebfcc.smalipat.koding.io'
 #
 ## Classes Directory Navigation
@@ -174,7 +102,7 @@ alias tmuxat='tmux at'
 alias tmuxt='tmux at -t'
 alias tmuxls='tmux ls'
 #
-alias sshLatex='ssh  -v -i ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem -R 52698:localhost:52698 ubuntu@54.158.90.114'
+alias sshLatex='ssh -X -i ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem -L 59001:localhost:5901 ubuntu@184.72.173.83'
 alias uploadresume='scp -i ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem resume.tex ubuntu@52.91.27.170:~/rm2'
 alias downloadresume='scp -i ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem ubuntu@52.91.27.170:~/rm2/resume.pdf .'
 #
@@ -185,10 +113,19 @@ alias haxmstop='sudo kextunload -bundle-id com.intel.kext.intelhaxm'
 alias haxmstart='sudo kextload -bundle-id com.intel.kext.intelhaxm'
 alias haxmstat='kextstat | grep intel'
 export PATH=$PATH:~/.android/avd:~/Library/Android/sdk/platform-tools:~/Library/Android/sdk/tools
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home"
+export PATH=$JAVA_HOME/bin:$PATH
 alias exportInst0='sshfs ubuntu@52.91.27.170:/home/ubuntu ~/Inst0 -o IdentityFile=~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem'
 # PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 #
 #
 #
 eval "$(ssh-agent -s)"
-ssh-add ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem
+function mountAndroid { hdiutil attach /Volumes/Seagate\ Backup\ Plus\ Drive/Srikanth/android.dmg -mountpoint /Volumes/android; }
+export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx7g"
+
+
+#macport environment variables
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+export DISPLAY=:0.0

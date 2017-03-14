@@ -1,5 +1,5 @@
 /**
-    __author__ : srikanthreddy
+    __author__ : srikanthreddy 
     problems_ID:
 */
 
@@ -38,4 +38,3 @@ int main() {
     ios::sync_with_stdio(false);
 	return 0;
 }
-
