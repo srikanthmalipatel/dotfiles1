@@ -1,0 +1,39 @@
+[submodule "oh-my-zsh/themes/honukai-iterm-zsh"]
+	path = oh-my-zsh/themes/honukai-iterm-zsh
+	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git
+[submodule ".vim/bundle/codeforces.vim"]
+	path = .vim/bundle/codeforces.vim
+	url = https://github.com/Igorjan94/codeforces.vim.git
+[submodule ".vim/bundle/minibufexpl.vim"]
+	path = .vim/bundle/minibufexpl.vim
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule ".vim/bundle/vim-autotag"]
+	path = .vim/bundle/vim-autotag
+	url = https://github.com/craigemery/vim-autotag.git
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/vim-easy-align"]
+	path = .vim/bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule ".vim/bundle/vim-powerline"]
+	path = .vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule ".vim/bundle/vim-template"]
+	path = .vim/bundle/vim-template
+	url = https://github.com/aperezdc/vim-template.git
+[submodule "fonts"]
+	path = fonts
+	url = https://github.com/powerline/fonts.git
+[submodule "tmux-powerline"]
+	path = tmux-powerline
+	url = https://github.com/erikw/tmux-powerline.git
+[submodule "vincentbernat/zshrc"]
+	path = vincentbernat/zshrc
+	url = https://github.com/vincentbernat/zshrc.git
