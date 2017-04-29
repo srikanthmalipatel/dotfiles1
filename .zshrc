@@ -17,7 +17,7 @@ unsetopt MULTIOS
 #             -z $TMUX ]] && \
 #    exec tmux
 
-export ZSH=/Users/SrikanthMalipatel/.zsh
+export ZSH=/Users/malipat/.zsh
 #ZSH=${ZSH:-${ZDOTDIR:-$HOME}/.zsh}
 fpath=($ZSH/functions $ZSH/completions $fpath)
 
@@ -63,6 +63,7 @@ alias bc='bc -l'
 ## handy short cuts #
 alias h='history'
 alias j='jobs -l'
+alias sourcezsh='source ~/.zshrc'
 #
 ## vim as default
 alias vi='vim'
@@ -71,24 +72,8 @@ alias vis='vim "+set si"'
 alias edit='vim'
 #
 ## show open ports
-alias ports='netstat -tulanp'
+alias openports='netstat -tulanp'
 #
-## virtualbox start and save
-alias devboxstart='VBoxManage startvm Development-Box --type headless'
-alias devboxsave='VBoxManage controlvm Development-Box savestate'
-alias devboxstop='VBoxManage controlvm Development-Box poweroff'
-#
-alias sshdevbox='ssh -p 2000 box@localhost'
-alias kodingvm='sudo ssh -o StrictHostKeyChecking=no smalipat@uskkce0ebfcc.smalipat.koding.io'
-#
-## Classes Directory Navigation
-alias ir='cd ~/classes/Sem1/cs535'
-alias algo='cd ~/classes/Sem1/cs531'
-alias ml='cd ~/classes/Sem1/cs574'
-alias mnc='cd ~/classes/Sem1/cs589'
-alias os='cd ~/classes/Sem2/cs521'
-alias ossrc='cd ~/classes/Sem2/cs521/vagrant/src'
-
 ## Buffalo cse servers
 alias timberlake='ssh smalipat@timberlake.cse.buffalo.edu'
 alias euston='ssh smalipat@euston.cse.buffalo.edu'
@@ -101,31 +86,39 @@ alias tmuxn='tmux new -s'
 alias tmuxat='tmux at'
 alias tmuxt='tmux at -t'
 alias tmuxls='tmux ls'
+alias tmuxkill='tmux kill-session -t'
 #
-alias sshLatex='ssh -X -i ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem -L 59001:localhost:5901 ubuntu@184.72.173.83'
-alias uploadresume='scp -i ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem resume.tex ubuntu@52.91.27.170:~/rm2'
-alias downloadresume='scp -i ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem ubuntu@52.91.27.170:~/rm2/resume.pdf .'
-#
-alias getStats='scp -i ~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem ubuntu@52.91.27.170:~/simulations/trace.tr .'
-
-# HAXM kernel module loading and unloading
-alias haxmstop='sudo kextunload -bundle-id com.intel.kext.intelhaxm'
-alias haxmstart='sudo kextload -bundle-id com.intel.kext.intelhaxm'
-alias haxmstat='kextstat | grep intel'
-export PATH=$PATH:~/.android/avd:~/Library/Android/sdk/platform-tools:~/Library/Android/sdk/tools
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home"
-export PATH=$JAVA_HOME/bin:$PATH
-alias exportInst0='sshfs ubuntu@52.91.27.170:/home/ubuntu ~/Inst0 -o IdentityFile=~/keys/ubuntu_ubuntu_54_211_96_244_NV.pem'
 # PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 #
 #
 #
 eval "$(ssh-agent -s)"
-function mountAndroid { hdiutil attach /Volumes/Seagate\ Backup\ Plus\ Drive/Srikanth/android.dmg -mountpoint /Volumes/android; }
-export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx7g"
 
 
 #macport environment variables
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 export DISPLAY=:0.0
+
+# Brazil Path
+export PATH=$BRAZIL_CLI_BIN:$PATH
+
+# Cloud Desktop
+alias cloudssh='ssh malipat@dev-dsk-malipat-2c-a7a5d5fb.us-west-2.amazon.com'
+
+# PhantomJS
+export PHANTOMJS_BIN=`which phantomjs`
+
+# git commands
+alias onelinelog='git log --pretty=oneline'
+
+# brazil commands
+alias bb='brazil-build'
+alias bbr='brazil-build release'
+alias bbs='brazil-build synthesize'
+
+# workspace specific config
+alias useservervs='brazil ws use --versionSet GuardDutyConsoleServer/development'
+alias usewebappvs='brazil ws use --versionSet GuardDutyConsoleWebApp/development'
+
+export P4CONFIG=.p4config

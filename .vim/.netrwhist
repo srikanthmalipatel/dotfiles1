@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/SrikanthMalipatel/classes/Sem2/cs586/PA1/scripts'
 let g:netrw_dirhist_2='/Users/SrikanthMalipatel/classes/Sem2/cs586/PA1'
 let g:netrw_dirhist_3='/Users/SrikanthMalipatel/classes/Sem2/cs586'
@@ -7,3 +7,5 @@ let g:netrw_dirhist_4='/Users/SrikanthMalipatel/classes/Sem2'
 let g:netrw_dirhist_5='/Users/SrikanthMalipatel/classes'
 let g:netrw_dirhist_6='/Users/SrikanthMalipatel'
 let g:netrw_dirhist_7='/Users'
+let g:netrw_dirhist_8='/Users/malipat/workspace/dotfiles1/.vim/bundle/codeforces.vim'
+let g:netrw_dirhist_9='/Users/malipat/workspace/dotfiles1/.vim/bundle/vim-colors-solarized'
