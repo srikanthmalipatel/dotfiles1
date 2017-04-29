@@ -1,6 +1,3 @@
-[submodule "oh-my-zsh/themes/honukai-iterm-zsh"]
-	path = oh-my-zsh/themes/honukai-iterm-zsh
-	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git
 [submodule ".vim/bundle/codeforces.vim"]
 	path = .vim/bundle/codeforces.vim
 	url = https://github.com/Igorjan94/codeforces.vim.git
@@ -31,9 +28,6 @@
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/powerline/fonts.git
-[submodule "tmux-powerline"]
-	path = tmux-powerline
-	url = https://github.com/erikw/tmux-powerline.git
 [submodule "vincentbernat/zshrc"]
 	path = vincentbernat/zshrc
 	url = https://github.com/vincentbernat/zshrc.git

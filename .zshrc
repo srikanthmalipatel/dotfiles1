@@ -3,6 +3,8 @@
 # Disabling MULTIOS option - The MULTIOS option means that echo something >&1 | other_command will output to FD 1 and pipe the output to other_command, rather than only piping it. To turn this off, run unsetopt MULTIOS.
 unsetopt MULTIOS
 
+
+ZSH_THEME="honukai"
 # Use /bin/sh when no terminal is present
 [[ ${TERM:-dumb} != "dumb" ]] || exec /bin/sh
 [ -t 1 ] || exec /bin/sh
@@ -29,11 +31,6 @@ fpath=($ZSH/functions $ZSH/completions $fpath)
 # Autoload add-zsh-hook if available
 autoload -U is-at-least
 { autoload -U +X add-zsh-hook || unset -f add-zsh-hook } 2> /dev/null
-
-__() {
-    for config_file ($ZSH/rc/*.zsh) source $config_file
-    [ ! -e $ZSH/env ] || . $ZSH/env
-} && __
 
 _vbe_setprompt
 unset __
