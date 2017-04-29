@@ -31,3 +31,9 @@
 [submodule "vincentbernat/zshrc"]
 	path = vincentbernat/zshrc
 	url = https://github.com/vincentbernat/zshrc.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "honukai-iterm-zsh"]
+	path = honukai-iterm-zsh
+	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git

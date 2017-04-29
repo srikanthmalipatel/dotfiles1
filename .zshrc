@@ -1,121 +1,85 @@
-# -*- sh -*-
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Disabling MULTIOS option - The MULTIOS option means that echo something >&1 | other_command will output to FD 1 and pipe the output to other_command, rather than only piping it. To turn this off, run unsetopt MULTIOS.
-unsetopt MULTIOS
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="honukai"
-# Use /bin/sh when no terminal is present
-[[ ${TERM:-dumb} != "dumb" ]] || exec /bin/sh
-[ -t 1 ] || exec /bin/sh
 
-# Execute tmux if available and if we have some configuration for it
-#(( $+commands[tmux] )) && \
-#    [[ -f ~/.tmux.conf && \
-#             $PPID != 1 && \
-#             $$ != 1 && \
-#             $TERM != linux && \
-#             $TERM != screen* && \
-#             -z $TMUX ]] && \
-#    exec tmux
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-export ZSH=/Users/malipat/.zsh
-#ZSH=${ZSH:-${ZDOTDIR:-$HOME}/.zsh}
-fpath=($ZSH/functions $ZSH/completions $fpath)
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-[[ $ZSH_NAME == "zsh-static" ]] && [[ -d /usr/share/zsh-static ]] && {
-    # Rewrite /usr/share/zsh to /usr/share/zsh-static
-    fpath=(${fpath/\/usr\/share\/zsh\//\/usr\/share\/zsh-static\/})
-}
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Autoload add-zsh-hook if available
-autoload -U is-at-least
-{ autoload -U +X add-zsh-hook || unset -f add-zsh-hook } 2> /dev/null
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-_vbe_setprompt
-unset __
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-alias ..='cd ..'
-alias apt-get='sudo apt-get'
-alias apt-cache='sudo apt-cache'
-alias upgrade='sudo apt-get upgrade'
-alias update='sudo apt-get update'
-alias desk='cd ~/Desktop'
-alias down='cd ~/Downloads'
-alias c='clear'
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-## aliases for file listings
-alias ls='ls -G'
-alias ll="ls -al"
-alias l.="ls -d .* -G"
-### Colorize the grep command output for ease of use (good for log files)##
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 #
-## Start calculator with math support
-alias bc='bc -l'
-#
-## handy short cuts #
-alias h='history'
-alias j='jobs -l'
-alias sourcezsh='source ~/.zshrc'
-#
-## vim as default
-alias vi='vim'
-alias svi='sudo vi'
-alias vis='vim "+set si"'
-alias edit='vim'
-#
-## show open ports
-alias openports='netstat -tulanp'
-#
-## Buffalo cse servers
-alias timberlake='ssh smalipat@timberlake.cse.buffalo.edu'
-alias euston='ssh smalipat@euston.cse.buffalo.edu'
-alias embankment='ssh smalipat@embankment.cse.buffalo.edu'
-alias underground='ssh smalipat@underground.cse.buffalo.edu'
-alias highgate='ssh -X smalipat@highgate.cse.buffalo.edu'
-#
-##tmux shortcuts
-alias tmuxn='tmux new -s'
-alias tmuxat='tmux at'
-alias tmuxt='tmux at -t'
-alias tmuxls='tmux ls'
-alias tmuxkill='tmux kill-session -t'
-#
-# PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-#
-#
-#
-eval "$(ssh-agent -s)"
-
-
-#macport environment variables
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-export DISPLAY=:0.0
-
-# Brazil Path
-export PATH=$BRAZIL_CLI_BIN:$PATH
-
-# Cloud Desktop
-alias cloudssh='ssh malipat@dev-dsk-malipat-2c-a7a5d5fb.us-west-2.amazon.com'
-
-# PhantomJS
-export PHANTOMJS_BIN=`which phantomjs`
-
-# git commands
-alias onelinelog='git log --pretty=oneline'
-
-# brazil commands
-alias bb='brazil-build'
-alias bbr='brazil-build release'
-alias bbs='brazil-build synthesize'
-
-# workspace specific config
-alias useservervs='brazil ws use --versionSet GuardDutyConsoleServer/development'
-alias usewebappvs='brazil ws use --versionSet GuardDutyConsoleWebApp/development'
-
-export P4CONFIG=.p4config
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
