@@ -1,0 +1,6 @@
+- Add .gitignore file to dotfiles repo and generate the symlinks file.
+Make git use the same gitignore file.
+
+- add_ec2_ssh_key.sh requires user to manually add ssh config. Update it to add basic config stuff automatically.
+
+

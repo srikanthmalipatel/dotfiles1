@@ -26,3 +26,6 @@ cd ~/workspace/dotfiles1/oh-my-zsh/themes/
 echo In directory: $PWD
 echo Creating symlinks for oh-my-zsh themes
 ln -s ~/workspace/dotfiles1/honukai-iterm-zsh/honukai.zsh-theme honukai.zsh-theme
+
+echo "Mark the permissions of add_ec2_ssh_keys to executable"
+chmod +x add_ec2_ssh_key.sh

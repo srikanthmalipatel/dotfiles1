@@ -84,3 +84,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/workspace/dotfiles1/.zshrc.orig
+source ~/workspace/dotfiles1/.zshrc.spark

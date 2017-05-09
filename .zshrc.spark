@@ -1,0 +1,9 @@
+export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m -XX:MaxPermSize=512M"
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# SCALA_HOME
+export SCALA_HOME=/usr/local/bin/scala
+export PATH=$PATH:$SCALA_HOME/bin
+
+# This is an EMR spark training cluster deployed on aws-sec-guard-duty-beta-iad account
+alias spTraining="ssh hadoop@ec2-34-209-13-219.us-west-2.compute.amazonaws.com"
