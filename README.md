@@ -1,7 +1,7 @@
 # dotfiles
 
 ### Git ignore files. ###
-# It’s safe to make all projects ignore all files called tags. I recommend setting up a global git ignore list.
+It’s safe to make all projects ignore all files called tags. I recommend setting up a global git ignore list.
 echo "tags" >> ~/.global_ignore
 git config --global core.excludesfile $HOME/.global_ignore
 
@@ -12,3 +12,6 @@ Troubleshoot: when "Ctags -R ." if you get illegal option -R then refer https://
 ### Auto update ctag files ###
 Use vim-autotag to automatically update tags files. This will only work on projects that have already had ctags -R performed before.
 Refer: https://github.com/craigemery/vim-autotag
+
+### oh-my-zsh ###
+Use this wiki for reference - https://github.com/robbyrussell/oh-my-zsh/wiki
