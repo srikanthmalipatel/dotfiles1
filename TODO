@@ -3,4 +3,5 @@ Make git use the same gitignore file.
 
 - add_ec2_ssh_key.sh requires user to manually add ssh config. Update it to add basic config stuff automatically.
 
+- Right now the script.sh and few zsh config files require the dotfiles directory to be ~/workspace/dotfiles. Make it generic by prompting user for dotfiles installation folder"
 
