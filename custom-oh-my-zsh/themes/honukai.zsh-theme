@@ -1,0 +1,1 @@
+/Users/malipat/workspace/dotfiles1/honukai-iterm-zsh/honukai.zsh-theme
